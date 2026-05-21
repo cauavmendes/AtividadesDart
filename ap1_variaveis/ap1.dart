@@ -4,7 +4,7 @@ void main() {
   int idade = 19;
   bool ativo = true;
   double peso = 70.00;
-  String? nacionalidade = "Brasileiro";
+  String? nacionalidade = null;
   
   print("Nome completo: $nome $sobrenome");
 
