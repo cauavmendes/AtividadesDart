@@ -2,6 +2,7 @@ void main() {
   String nome = "Cauã";
   String sobrenome = "Mendes";
   int idade = 19;
+  // ignore: unused_local_variable
   bool ativo = true;
   double peso = 70.00;
   String? nacionalidade = null;
