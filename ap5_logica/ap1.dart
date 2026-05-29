@@ -1,7 +1,7 @@
-void main () {
+void main() {
   final impar = numerosImpares(10);
 
-  for(var numero in impar) {
+  for (var numero in impar) {
     print("Impar: $numero");
   }
 }
@@ -17,4 +17,3 @@ List<int> numerosImpares(int quantidade) {
   }
   return numeros;
 }
-

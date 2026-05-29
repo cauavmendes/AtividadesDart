@@ -6,5 +6,7 @@ void main() {
 
   const media = (valor1 + valor2 + valor3 + valor4) / 4;
 
-  print("A média entre [${valor1.toStringAsFixed(1)}, ${valor2.toStringAsFixed(1)}, ${valor3.toStringAsFixed(1)}, ${valor4.toStringAsFixed(1)}] = ${media.toStringAsFixed(1)}"); 
+  print(
+    "A média entre [${valor1.toStringAsFixed(1)}, ${valor2.toStringAsFixed(1)}, ${valor3.toStringAsFixed(1)}, ${valor4.toStringAsFixed(1)}] = ${media.toStringAsFixed(1)}",
+  );
 }

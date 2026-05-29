@@ -7,15 +7,15 @@ void main() {
       "Decimal: ${decimal(numero)}, "
       "Binário: ${binario(numero)}, "
       "Octal: ${octal(numero)}, "
-      "Hexadecimal: ${hexadecimal(numero)}"
+      "Hexadecimal: ${hexadecimal(numero)}",
     );
   }
 }
 
 List<int> numeros() {
   final random = Random();
-  final numeros = List.generate(15,  (_) => random.nextInt(5000));
-  print("Números: ${numeros.join(", ")}");  
+  final numeros = List.generate(15, (_) => random.nextInt(5000));
+  print("Números: ${numeros.join(", ")}");
 
   return numeros;
 }

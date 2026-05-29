@@ -6,7 +6,7 @@ void main() {
   bool ativo = true;
   double peso = 70.00;
   String? nacionalidade = null;
-  
+
   print("Nome completo: $nome $sobrenome");
 
   if (idade >= 18) {
@@ -15,17 +15,17 @@ void main() {
     print("Menor de idade: $idade");
   }
 
-    if (ativo = true) {
-      print("Ativo");
-    } else {
-      print("Inativo");
-    }
+  if (ativo = true) {
+    print("Ativo");
+  } else {
+    print("Inativo");
+  }
 
-    print("Peso: ${peso.toStringAsFixed(2)}");
+  print("Peso: ${peso.toStringAsFixed(2)}");
 
-    if (nacionalidade != null) {
-      print("Nacionalidade: $nacionalidade");
-    } else {
-      print("Nacionalidade: não informada");
-    }
+  if (nacionalidade != null) {
+    print("Nacionalidade: $nacionalidade");
+  } else {
+    print("Nacionalidade: não informada");
+  }
 }

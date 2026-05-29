@@ -7,7 +7,10 @@ void main() {
     'e foi vendido por $valorComDesconto reais.',
   );
 
-  final desconto = porcentagemDesconto(valorOriginalDoProduto, valorComDesconto);
+  final desconto = porcentagemDesconto(
+    valorOriginalDoProduto,
+    valorComDesconto,
+  );
 
   print('O desconto dado foi $desconto%.');
 }

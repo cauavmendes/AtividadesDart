@@ -1,6 +1,6 @@
 import 'dart:math';
 
-void main(){
+void main() {
   final random = Random();
 
   final lista = List.generate(50, (_) => random.nextInt(15));

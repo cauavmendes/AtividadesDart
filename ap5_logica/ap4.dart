@@ -9,7 +9,7 @@ void main() {
     "Maria",
     "Fernanda",
     "Carlos",
-    "Maria"
+    "Maria",
   ];
 
   final nome = 'Joao';
@@ -18,19 +18,18 @@ void main() {
   if (quantidade == 1) {
     print("O nome '$nome' aparece $quantidade vez na lista.");
   } else if (quantidade > 1) {
-    print("O nome '$nome' aparece $quantidade vezes na lista.");  
+    print("O nome '$nome' aparece $quantidade vezes na lista.");
   } else {
     print("O nome '$nome' não aparece na lista.");
   }
-  
 }
 
-int contarNome(List<String>listaNomes, String nome){
-    int quantidade = 0;
-    for (var nomeLista in listaNomes) {
-      if (nomeLista == nome) {
-        quantidade++;
-      }
+int contarNome(List<String> listaNomes, String nome) {
+  int quantidade = 0;
+  for (var nomeLista in listaNomes) {
+    if (nomeLista == nome) {
+      quantidade++;
     }
-    return quantidade;
   }
+  return quantidade;
+}

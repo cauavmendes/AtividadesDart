@@ -1,6 +1,6 @@
 import 'dart:math';
 
-void main () {
+void main() {
   final random = Random();
   final numero = random.nextInt(901) + 100;
   final soma = numerosPares(numero);

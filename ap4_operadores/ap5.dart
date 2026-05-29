@@ -7,9 +7,8 @@ void main() {
     {'nome': 'Andy', 'idade': 13},
     {'nome': 'Kim', 'idade': 27},
     {'nome': 'Robert', 'idade': 31},
-    ];
-    for (var pessoa in pessoas){
-      print("${pessoa['nome']}\t${pessoa['idade'] ?? 'Idade não informada'}");
-    }
-
+  ];
+  for (var pessoa in pessoas) {
+    print("${pessoa['nome']}\t${pessoa['idade'] ?? 'Idade não informada'}");
+  }
 }

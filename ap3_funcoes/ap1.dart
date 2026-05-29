@@ -8,11 +8,11 @@ void main() {
 List<List<int>> Lista() {
   final random = Random();
 
-  final lista1 = List.generate(5,  (_) => random.nextInt(100));
+  final lista1 = List.generate(5, (_) => random.nextInt(100));
 
   print("Lista: ${lista1.join(", ")}");
 
-  final lista2 = List.generate(5,  (_) => random.nextInt(100));
+  final lista2 = List.generate(5, (_) => random.nextInt(100));
 
   print("Lista: ${lista2.join(", ")}");
 
@@ -20,7 +20,6 @@ List<List<int>> Lista() {
 }
 
 void Soma(List<int> lista1, List<int> lista2) {
-
   if (lista1.isEmpty || lista2.isEmpty) {
     print("Lista vazia");
     return;
@@ -33,11 +32,10 @@ void Soma(List<int> lista1, List<int> lista2) {
 
   final soma = <int>[];
 
-  for(int i = 0; i < lista1.length; i++) {
+  for (int i = 0; i < lista1.length; i++) {
     print("${lista1[i]} + ${lista2[i]}");
   }
 
-  for(int i = 0; i < lista1.length; i++)
-  soma.add(lista1[i] + lista2[i]);
-    print("Lista: ${soma.join(", ")}");
+  for (int i = 0; i < lista1.length; i++) soma.add(lista1[i] + lista2[i]);
+  print("Lista: ${soma.join(", ")}");
 }
