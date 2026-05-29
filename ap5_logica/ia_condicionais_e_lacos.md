@@ -7,23 +7,23 @@ else: executa quando nenhuma das condições anteriores é verdadeira.
 Exemplo:
 
 if (nota >= 7) {
-  print("Aprovado");
+print("Aprovado");
 } else if (nota >= 5) {
-  print("Recuperação");
+print("Recuperação");
 } else {
-  print("Reprovado");
+print("Reprovado");
 }
 
 O Dart verifica as condições de cima para baixo e executa apenas o primeiro bloco cuja condição seja verdadeira.
 
-Quais cuidados tenho que ter com “if” e “else”?  
+Quais cuidados tenho que ter com “if” e “else”?
 
 Alguns cuidados importantes ao usar if e else em Dart:
 
 A condição deve resultar em true ou false.
 
 if (idade >= 18) {
-  print("Maior de idade");
+print("Maior de idade");
 }
 
 Use == para comparar valores, não =.
@@ -34,19 +34,19 @@ if (numero == 10) { // correto
 A ordem das condições importa. Coloque as condições mais específicas antes das mais gerais.
 
 if (nota >= 9) {
-  print("Excelente");
+print("Excelente");
 } else if (nota >= 7) {
-  print("Aprovado");
+print("Aprovado");
 }
 
 Use chaves {} para deixar o código mais claro e evitar erros futuros.
 
 if (ativo) {
-  print("Usuário ativo");
+print("Usuário ativo");
 }
 Evite muitos if aninhados, pois dificultam a leitura do código.
 
-Qual a importância da palavra-chave 'break' em um 'switch case'? 
+Qual a importância da palavra-chave 'break' em um 'switch case'?
 
 A palavra-chave break é usada para encerrar a execução de um case dentro de um switch.
 
@@ -57,14 +57,14 @@ Exemplo:
 var dia = 2;
 
 switch (dia) {
-  case 1:
-    print("Domingo");
-    break;
-  case 2:
-    print("Segunda-feira");
-    break;
-  default:
-    print("Dia inválido");
+case 1:
+print("Domingo");
+break;
+case 2:
+print("Segunda-feira");
+break;
+default:
+print("Dia inválido");
 }
 
 Saída:
@@ -74,22 +74,22 @@ Resumo
 
 O break serve para parar a execução do switch após encontrar o caso correto, evitando que o programa continue avaliando outros casos.
 
-Quando devo usar 'switch' em vez de uma série de 'if else'? 
+Quando devo usar 'switch' em vez de uma série de 'if else'?
 
 Use switch quando você precisa comparar uma mesma variável com vários valores específicos.
 
 Exemplo:
 
 switch (dia) {
-  case 1:
-    print("Domingo");
-    break;
-  case 2:
-    print("Segunda");
-    break;
-  case 3:
-    print("Terça");
-    break;
+case 1:
+print("Domingo");
+break;
+case 2:
+print("Segunda");
+break;
+case 3:
+print("Terça");
+break;
 }
 
 Use if else quando as condições forem mais complexas, envolvendo comparações, intervalos ou múltiplas expressões.
@@ -97,24 +97,24 @@ Use if else quando as condições forem mais complexas, envolvendo comparações
 Exemplo:
 
 if (nota >= 9) {
-  print("Excelente");
+print("Excelente");
 } else if (nota >= 7) {
-  print("Aprovado");
+print("Aprovado");
 } else {
-  print("Reprovado");
+print("Reprovado");
 }
 Resumo
 switch → vários valores possíveis para a mesma variável.
 if else → condições mais complexas (>, <, >=, &&, ||, etc.).
 
-Qual a diferença entre um loop 'for' tradicional e um loop 'for...in'? 
+Qual a diferença entre um loop 'for' tradicional e um loop 'for...in'?
 
 for tradicional
 
 É usado quando você precisa controlar o índice, definir início, fim e incremento.
 
 for (var i = 0; i < 5; i++) {
-  print(i);
+print(i);
 }
 
 Saída:
@@ -131,7 +131,7 @@ for...in
 var nomes = ["Ana", "João", "Maria"];
 
 for (var nome in nomes) {
-  print(nome);
+print(nome);
 }
 
 Saída:
@@ -140,21 +140,21 @@ Ana
 João
 Maria
 Resumo
-for tradicional	for...in
-Usa índice (i)	Usa os elementos diretamente
-Mais controle sobre a repetição	Código mais simples para percorrer coleções
-Ideal quando precisa da posição do elemento	Ideal quando só precisa do valor
+for tradicional for...in
+Usa índice (i) Usa os elementos diretamente
+Mais controle sobre a repetição Código mais simples para percorrer coleções
+Ideal quando precisa da posição do elemento Ideal quando só precisa do valor
 
 Regra prática: use for...in para percorrer listas e use for tradicional quando precisar do índice ou de um controle mais específico da repetição.
 
-Como posso repetir um bloco de código um número específico de vezes? 
+Como posso repetir um bloco de código um número específico de vezes?
 
 Você pode usar um loop for, que é ideal quando sabe exatamente quantas vezes deseja repetir um bloco de código.
 
 Exemplo: repetir 5 vezes.
 
 for (var i = 0; i < 5; i++) {
-  print("Olá!");
+print("Olá!");
 }
 
 Saída:
@@ -180,7 +180,7 @@ O principal risco é criar um loop infinito, ou seja, um laço que nunca termina
 Exemplo:
 
 while (true) {
-  print("Executando...");
+print("Executando...");
 }
 
 Problemas que isso pode causar:
@@ -195,31 +195,31 @@ Exemplo correto:
 var contador = 0;
 
 while (contador < 5) {
-  print(contador);
-  contador++;
+print(contador);
+contador++;
 }
 
 Aqui, contador++ garante que a condição eventualmente se torne falsa e o loop termine.
 
 Resumo: sempre certifique-se de que a condição do while possa se tornar falsa em algum momento, caso contrário você corre o risco de criar um loop infinito.
 
-Quando é adequado usar for e usar while? 
+Quando é adequado usar for e usar while?
 
 Use for quando você sabe quantas vezes o código deve repetir.
 for (var i = 0; i < 10; i++) {
-  print(i);
+print(i);
 }
 Use while quando você não sabe exatamente quantas repetições serão necessárias e quer repetir enquanto uma condição for verdadeira.
 var senhaCorreta = false;
 
 while (!senhaCorreta) {
-  // pedir senha
+// pedir senha
 }
 Resumo
 for → número de repetições conhecido.
 while → repete até que uma condição deixe de ser verdadeira.
 
-Qual a diferença entre os comandos 'break' e 'continue'? 
+Qual a diferença entre os comandos 'break' e 'continue'?
 
 Os dois são usados para controlar loops, mas têm funções diferentes:
 
@@ -227,10 +227,10 @@ break → encerra o loop imediatamente.
 continue → pula a iteração atual e vai para a próxima.
 Exemplo com break
 for (var i = 1; i <= 5; i++) {
-  if (i == 3) {
-    break;
-  }
-  print(i);
+if (i == 3) {
+break;
+}
+print(i);
 }
 
 Saída:
@@ -242,10 +242,10 @@ Quando i vale 3, o loop é encerrado.
 
 Exemplo com continue
 for (var i = 1; i <= 5; i++) {
-  if (i == 3) {
-    continue;
-  }
-  print(i);
+if (i == 3) {
+continue;
+}
+print(i);
 }
 
 Saída:
@@ -258,11 +258,11 @@ Saída:
 Quando i vale 3, essa iteração é ignorada, mas o loop continua.
 
 Resumo
-Comando	O que faz
-break	Para o loop completamente
-continue	Pula a iteração atual e continua o loop
+Comando O que faz
+break Para o loop completamente
+continue Pula a iteração atual e continua o loop
 
-Como posso usar 'break' para sair de um loop aninhado? 
+Como posso usar 'break' para sair de um loop aninhado?
 
 Um break comum encerra apenas o loop mais interno. Para sair de um loop aninhado em Dart, você pode usar um rótulo (label).
 
@@ -270,12 +270,12 @@ Exemplo:
 
 externo:
 for (var i = 0; i < 3; i++) {
-  for (var j = 0; j < 3; j++) {
-    if (i == 1 && j == 1) {
-      break externo;
-    }
-    print("i=$i, j=$j");
-  }
+for (var j = 0; j < 3; j++) {
+if (i == 1 && j == 1) {
+break externo;
+}
+print("i=$i, j=$j");
+}
 }
 
 Saída:
@@ -291,17 +291,17 @@ Resumo
 break; → sai apenas do loop atual.
 break nomeDoRotulo; → sai do loop marcado com aquele rótulo, mesmo que existam outros loops dentro dele.
 
-Em quais situações é útil usar o comando 'continue' em um loop? 
+Em quais situações é útil usar o comando 'continue' em um loop?
 
 O comando continue é útil quando você quer pular uma iteração específica do loop e continuar com as próximas.
 
 Exemplo: imprimir apenas números ímpares.
 
 for (var i = 1; i <= 10; i++) {
-  if (i.isEven) {
-    continue;
-  }
-  print(i);
+if (i.isEven) {
+continue;
+}
+print(i);
 }
 
 Saída:
@@ -320,7 +320,7 @@ Resumo
 
 Use continue quando quiser ignorar a iteração atual e seguir normalmente para a próxima repetição do loop.
 
-Como posso usar um loop 'while' para ler dados de um arquivo? 
+Como posso usar um loop 'while' para ler dados de um arquivo?
 
 Você pode usar um while para continuar lendo o arquivo até não haver mais linhas.
 
@@ -329,8 +329,8 @@ Exemplo conceitual:
 var linha = lerLinhaDoArquivo();
 
 while (linha != null) {
-  print(linha);
-  linha = lerLinhaDoArquivo();
+print(linha);
+linha = lerLinhaDoArquivo();
 }
 
 Funcionamento:

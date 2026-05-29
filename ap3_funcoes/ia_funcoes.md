@@ -22,15 +22,15 @@ Uma função recursiva é uma função que chama ela mesma para resolver um prob
 Exemplo em Dart:
 
 void contar(int numero) {
-  print(numero);
+print(numero);
 
-  if (numero > 0) {
-    contar(numero - 1);
-  }
+if (numero > 0) {
+contar(numero - 1);
+}
 }
 
 void main() {
-  contar(5);
+contar(5);
 }
 
 Saída:
@@ -54,24 +54,24 @@ dificulta lembrar a ordem dos argumentos
 Exemplo ruim:
 
 void criarUsuario(
-  String nome,
-  int idade,
-  String email,
-  String telefone,
-  String cpf,
-  String endereco,
-  bool ativo,
+String nome,
+int idade,
+String email,
+String telefone,
+String cpf,
+String endereco,
+bool ativo,
 ) {}
 
 // é bom saber as más práticas e boas práticas na hora de produzir o código para facilitar na leitura e entendimento
 
-É recomendado usar de dynamic nos parâmetros de uma função? 
+É recomendado usar de dynamic nos parâmetros de uma função?
 
 Na maioria dos casos, não.
 
 Usar dynamic remove a verificação de tipo do Dart e deixa o código mais propenso a erros em tempo de execução.
 
-Quando usar os operadores de valores opcionais e valores requeridos em uma função dart? 
+Quando usar os operadores de valores opcionais e valores requeridos em uma função dart?
 
 Em Dart, você usa parâmetros opcionais e required principalmente em parâmetros nomeados ({}).
 
@@ -83,8 +83,8 @@ você quer evitar esquecimentos
 Exemplo:
 
 void login({
-  required String email,
-  required String senha,
+required String email,
+required String senha,
 }) {}
 Use opcional quando:
 existe valor padrão
@@ -94,12 +94,12 @@ a função consegue funcionar sem ele
 Exemplo:
 
 void mostrarMensagem({
-  String texto = "Olá",
+String texto = "Olá",
 }) {
-  print(texto);
+print(texto);
 }
 
-O que são parâmetros nomeados em uma função? 
+O que são parâmetros nomeados em uma função?
 
 Parâmetros nomeados são parâmetros passados pelo nome, e não apenas pela posição.
 
@@ -108,21 +108,21 @@ Em Dart, eles ficam entre {} na função.
 Exemplo:
 
 void criarUsuario({
-  required String nome,
-  required int idade,
+required String nome,
+required int idade,
 }) {
-  print(nome);
-  print(idade);
+print(nome);
+print(idade);
 }
 
 Chamada:
 
 criarUsuario(
-  nome: "Cauã",
-  idade: 20,
+nome: "Cauã",
+idade: 20,
 );
 
-Quais métodos existem para variáveis do tipo Function em dart? 
+Quais métodos existem para variáveis do tipo Function em dart?
 
 Function em Dart representa funções como objetos.
 
@@ -148,7 +148,7 @@ retornadas por outras funções
 Prefira tipar a função corretamente ao invés de usar Function puro:
 
 void executar(void Function() acao) {
-  acao();
+acao();
 }
 
 Qual a diferença entre chamar minha função chamado olaMundo das seguintes formas “olaMundo” e “olaMundo()”.
@@ -161,7 +161,7 @@ olaMundo() → execução da função
 Exemplo:
 
 void olaMundo() {
-  print("Olá mundo");
+print("Olá mundo");
 }
 Sem parênteses
 print(olaMundo);

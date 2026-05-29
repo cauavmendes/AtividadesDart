@@ -1,8 +1,8 @@
-Quais as boas práticas no uso de listas em dart? 
+Quais as boas práticas no uso de listas em dart?
 
 Em Dart, listas (List) são muito usadas em coleções de dados, principalmente no desenvolvimento com Flutter. Algumas boas práticas ajudam a deixar o código mais seguro, legível e performático.
 
-Que práticas posso adotar para trazer uma melhor performance ao usar listas em dart? 
+Que práticas posso adotar para trazer uma melhor performance ao usar listas em dart?
 
 1. Sempre tipar a lista
 
@@ -33,8 +33,7 @@ frutas.add('Uva');
 
 O final impede apenas:
 
-frutas = [];
-3. Use const para listas imutáveis
+frutas = []; 3. Use const para listas imutáveis
 
 Quando a lista nunca mudará:
 
@@ -46,8 +45,7 @@ Isso melhora performance e evita alterações acidentais.
 
 ❌ Isso dará erro:
 
-cores.add('preto');
-4. Prefira .map(), .where() e .fold() ao invés de loops manuais
+cores.add('preto'); 4. Prefira .map(), .where() e .fold() ao invés de loops manuais
 
 Código mais declarativo e legível.
 
@@ -56,29 +54,27 @@ Código mais declarativo e legível.
 List<String> maiores = [];
 
 for (var nome in nomes) {
-  if (nome.length > 5) {
-    maiores.add(nome);
-  }
+if (nome.length > 5) {
+maiores.add(nome);
+}
 }
 
 ✅:
 
 final maiores =
-    nomes.where((nome) => nome.length > 5).toList();
-5. Evite modificar listas durante iteração
+nomes.where((nome) => nome.length > 5).toList(); 5. Evite modificar listas durante iteração
 
 ❌:
 
 for (var item in lista) {
-  lista.remove(item);
+lista.remove(item);
 }
 
 Isso pode gerar comportamento inesperado.
 
 ✅:
 
-lista.removeWhere((item) => item.isEmpty);
-6. Use spread operator (...) para juntar listas
+lista.removeWhere((item) => item.isEmpty); 6. Use spread operator (...) para juntar listas
 
 Mais limpo e moderno.
 
@@ -88,15 +84,13 @@ final listaFinal = [...lista1, ...lista2];
 
 Também existe o null-aware spread:
 
-final lista = [...?nomes];
-7. Prefira listas imutáveis quando possível
+final lista = [...?nomes]; 7. Prefira listas imutáveis quando possível
 
 Em projetos maiores, evitar mutações reduz bugs.
 
 ✅:
 
-final numeros = List.unmodifiable([1, 2, 3]);
-8. Use .isEmpty e .isNotEmpty
+final numeros = List.unmodifiable([1, 2, 3]); 8. Use .isEmpty e .isNotEmpty
 
 Mais legível que comparar tamanho.
 
@@ -106,8 +100,7 @@ if (lista.length == 0)
 
 ✅:
 
-if (lista.isEmpty)
-9. Cuidado com listas aninhadas mutáveis
+if (lista.isEmpty) 9. Cuidado com listas aninhadas mutáveis
 
 ❌:
 
@@ -117,8 +110,7 @@ Isso reutiliza a mesma lista interna.
 
 ✅:
 
-final matriz = List.generate(3, (_) => []);
-10. Use coleções adequadas
+final matriz = List.generate(3, (\_) => []); 10. Use coleções adequadas
 
 Nem tudo deve ser List.
 
@@ -129,8 +121,7 @@ Iterable → processamento lazy
 
 Exemplo:
 
-final Set<String> emails = {};
-11. Evite acessar índices sem validação
+final Set<String> emails = {}; 11. Evite acessar índices sem validação
 
 ❌:
 
@@ -141,23 +132,21 @@ Pode lançar exceção.
 ✅:
 
 if (lista.length > 10) {
-  print(lista[10]);
-}
-12. Use List.generate() para criar listas dinâmicas
+print(lista[10]);
+} 12. Use List.generate() para criar listas dinâmicas
 
 ✅:
 
-final numeros = List.generate(5, (index) => index * 2);
+final numeros = List.generate(5, (index) => index \* 2);
 
 Resultado:
 
-[0, 2, 4, 6, 8]
-13. Prefira for-in quando não precisar do índice
+[0, 2, 4, 6, 8] 13. Prefira for-in quando não precisar do índice
 
 ✅:
 
 for (var nome in nomes) {
-  print(nome);
+print(nome);
 }
 
 Use índice apenas quando necessário.
@@ -167,9 +156,8 @@ Use índice apenas quando necessário.
 ✅:
 
 for (var entry in nomes.asMap().entries) {
-  print('${entry.key}: ${entry.value}');
-}
-15. Evite listas gigantes em memória sem necessidade
+print('${entry.key}: ${entry.value}');
+} 15. Evite listas gigantes em memória sem necessidade
 
 Para muitos dados:
 
@@ -182,17 +170,17 @@ Isso é importante principalmente em apps Flutter.
 
 Exemplo de código organizado
 void main() {
-  final List<String> nomes = [
-    'Ana',
-    'Carlos',
-    'Fernanda',
-    'João',
-  ];
+final List<String> nomes = [
+'Ana',
+'Carlos',
+'Fernanda',
+'João',
+];
 
-  final nomesGrandes =
-      nomes.where((nome) => nome.length > 4).toList();
+final nomesGrandes =
+nomes.where((nome) => nome.length > 4).toList();
 
-  print(nomesGrandes);
+print(nomesGrandes);
 }
 
 O que evitar ao usar listas em Dart
@@ -201,7 +189,7 @@ List lista = [];
 Evitar usar dynamic sem necessidade.
 Não modificar a lista durante um for-in:
 for (var item in lista) {
-  lista.remove(item);
+lista.remove(item);
 }
 Não acessar índices sem validar:
 lista[10];
@@ -245,8 +233,8 @@ cada chave deve ser única
 Exemplo:
 
 final usuario = {
-  'nome': 'Cauã',
-  'idade': 19,
+'nome': 'Cauã',
+'idade': 19,
 };
 
 Acesso por chave:
@@ -310,7 +298,7 @@ final Set<int> numeros = {};
 Cuidado com objetos personalizados:
 Para evitar duplicados corretamente, pode ser necessário sobrescrever == e hashCode.
 
-Traga a documentação do método elementaAtOrNull. 
+Traga a documentação do método elementaAtOrNull.
 
 O método elementAtOrNull pertence às extensões de Iterable no Dart e serve para acessar um elemento pelo índice sem gerar erro caso o índice não exista.
 

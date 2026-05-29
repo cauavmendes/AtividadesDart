@@ -15,7 +15,7 @@ Para evitar erros, converta os valores antes da comparação:
 
 int.parse("5")
 
-Qual a diferença entre os operadores de divisão '/' e '~/? 
+Qual a diferença entre os operadores de divisão '/' e '~/?
 
 Em Dart:
 
@@ -24,12 +24,12 @@ Em Dart:
 
 Exemplo:
 
-print(10 / 3);  // 3.3333333333333335
+print(10 / 3); // 3.3333333333333335
 print(10 ~/ 3); // 3
 
 O ~/ descarta as casas decimais.
 
-Como verifico se uma variável é de um determinado tipo em dart?  
+Como verifico se uma variável é de um determinado tipo em dart?
 
 Em Dart, você usa o operador is.
 
@@ -37,14 +37,14 @@ Exemplo:
 
 var valor = 10;
 
-print(valor is int);    // true
+print(valor is int); // true
 print(valor is String); // false
 
 Para verificar se não é de um tipo, use is!:
 
 print(valor is! String); // true
 
- Qual a função do operador '?' em testes de tipo? 
+Qual a função do operador '?' em testes de tipo?
 
 O ? em tipos indica que a variável pode receber null.
 
@@ -58,12 +58,12 @@ Em testes de tipo, isso afeta verificações:
 
 int? numero = null;
 
-print(numero is int);   // false
-print(numero is int?);  // true
+print(numero is int); // false
+print(numero is int?); // true
 int → aceita apenas números inteiros.
 int? → aceita int ou null.
 
-Quando usar os operadores de valores opcionais e valores requeridos em uma função dart? 
+Quando usar os operadores de valores opcionais e valores requeridos em uma função dart?
 
 Use:
 
@@ -73,11 +73,11 @@ required para parâmetros nomeados obrigatórios.
 Exemplo:
 
 void cadastrar({
-  required String nome,
-  int? idade,
+required String nome,
+int? idade,
 }) {
-  print(nome);
-  print(idade);
+print(nome);
+print(idade);
 }
 nome é obrigatório.
 idade é opcional e pode ser null.
@@ -86,18 +86,18 @@ Chamada:
 
 cadastrar(nome: "Cauã");
 
-Quais são os operadores de atribuição compostos e como eles funcionam? 
+Quais são os operadores de atribuição compostos e como eles funcionam?
 
 Os operadores de atribuição compostos servem para modificar e atribuir valor à variável na mesma linha.
 
 Principais operadores:
 
-+=  // soma
--=  // subtração
-*=  // multiplicação
-/=  // divisão
++= // soma
+-= // subtração
+\*= // multiplicação
+/= // divisão
 ~/= // divisão inteira
-%=  // resto da divisão
+%= // resto da divisão
 
 Exemplo:
 
@@ -106,12 +106,12 @@ int x = 10;
 x += 5; // x = x + 5
 print(x); // 15
 
-x *= 2; // x = x * 2
+x _= 2; // x = x _ 2
 print(x); // 30
 
 Eles são uma forma reduzida de escrever operações com atribuição.
 
-Como uso os operadores '&&' e '||' para combinar condições? 
+Como uso os operadores '&&' e '||' para combinar condições?
 
 && significa E → todas as condições precisam ser verdadeiras.
 || significa OU → pelo menos uma precisa ser verdadeira.
@@ -133,7 +133,7 @@ Você também pode combinar os dois:
 
 print((10 > 5 && 8 > 3) || false); // true
 
-Qual a diferença entre usar 'if-else' e expressões condicionais? 
+Qual a diferença entre usar 'if-else' e expressões condicionais?
 
 if-else é usado para executar blocos de código.
 Expressão condicional (? :) é usada para retornar um valor de forma curta.
@@ -141,21 +141,21 @@ if-else
 int idade = 18;
 
 if (idade >= 18) {
-  print("Maior de idade");
+print("Maior de idade");
 } else {
-  print("Menor de idade");
+print("Menor de idade");
 }
 Expressão condicional
 int idade = 18;
 
 String resultado =
-    idade >= 18 ? "Maior de idade" : "Menor de idade";
+idade >= 18 ? "Maior de idade" : "Menor de idade";
 
 print(resultado);
 
 A expressão condicional é mais compacta para decisões simples.
 
-Em quais situações a notação em cascata pode tornar o código mais legível? 
+Em quais situações a notação em cascata pode tornar o código mais legível?
 
 A notação em cascata (..) torna o código mais legível quando você precisa fazer várias operações no mesmo objeto.
 
@@ -170,9 +170,9 @@ pessoa.mostrar();
 Com cascata:
 
 var pessoa = Pessoa()
-  ..nome = "Cauã"
-  ..idade = 20
-  ..mostrar();
+..nome = "Cauã"
+..idade = 20
+..mostrar();
 
 Ela é útil para:
 
@@ -182,7 +182,7 @@ evitar repetir o nome da variável várias vezes.
 
 Isso deixa o código mais curto e organizado.
 
-Qual a diferença entre usar a notação em cascata e chamar métodos separadamente? 
+Qual a diferença entre usar a notação em cascata e chamar métodos separadamente?
 
 A diferença é que a notação em cascata (..) evita repetir o objeto várias vezes.
 
@@ -192,13 +192,13 @@ carro.acelerar();
 carro.frear();
 Com cascata
 carro
-  ..ligar()
-  ..acelerar()
-  ..frear();
+..ligar()
+..acelerar()
+..frear();
 
 Os dois fazem a mesma coisa, mas a cascata deixa o código mais compacto e organizado quando várias operações são feitas no mesmo objeto.
 
-Como a notação em cascata pode ser usada para modificar um objeto após realizar testes de tipo? 
+Como a notação em cascata pode ser usada para modificar um objeto após realizar testes de tipo?
 
 Você pode usar is para verificar o tipo do objeto e depois usar a notação em cascata (..) para modificar esse objeto.
 
@@ -207,10 +207,10 @@ Exemplo:
 dynamic pessoa = Pessoa();
 
 if (pessoa is Pessoa) {
-  pessoa
-    ..nome = "Cauã"
-    ..idade = 20
-    ..mostrar();
+pessoa
+..nome = "Cauã"
+..idade = 20
+..mostrar();
 }
 is Pessoa verifica o tipo.
 .. permite alterar várias propriedades do mesmo objeto de forma organizada.
