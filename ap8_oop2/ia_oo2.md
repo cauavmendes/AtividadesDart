@@ -1,47 +1,224 @@
-1. Herança, Sobrescrita e Classes Abstratas
-O que é Herança e Sobrescrita (@override)? 
-A Herança permite que uma classe (filha) herde atributos e métodos de outra classe (pai), promovendo o reaproveitamento de código.Sobrescrever um método significa redefinir o comportamento de um método que veio da classe pai para que ele se adapte à realidade da classe filha. Em Dart, usamos a anotação @override para indicar isso explicitamente.  Por que fazer isso? Para que classes filhas respondam ao mesmo "comando" de maneiras diferentes (Polimorfismo).Chamando o método original: Se você quiser aproveitar o comportamento do pai e apenas adicionar algo a mais, use a palavra-chave super.nomeDoMetodo().
-Dart
+1. Sobrescrita de métodos (Override)
+
+Ocorre quando uma classe filha redefine um método que já existe na classe pai.
+
 class Animal {
-   void emitirSom() => print("Som genérico");
-   }
+void emitirSom() {
+print('Som genérico');
+}
+}
 
 class Cachorro extends Animal {
 @override
 void emitirSom() {
-super.emitirSom(); // Chama o som genérico primeiro
-print("Au Au!"); // Adiciona o comportamento específico
+print('Au au');
 }
 }
-Classes Abstratas vs. Classes Concretas
-Uma classe abstrata funciona como um molde/plano de desenvolvimento. Ela não pode ser instanciada (você não pode dar um new ou criar um objeto direto dela). Ela serve exclusivamente para ser herdada ou implementada.
-Quando usar? Quando você tem um conceito geral que não deve existir sozinho no mundo real. Por exemplo: você não cria um objeto "ContaBancaria", você cria uma "ContaCorrente" ou "ContaPoupanca".
-2. Encapsulamento: Getters, Setters e Atributos PrivadosEm Dart, qualquer atributo ou método que começa com um sublinhado (\_) torna-se privado para a biblioteca (o arquivo .dart) onde foi criado.Por que usar Getters e Setters em vez de acesso direto?
-Validação: Você pode impedir que dados inválidos entrem no seu sistema.Proteção (Read-only): Você pode criar um getter sem um setter, tornando a variável pública para leitura, mas impossível de ser alterada por fora.Dart
-class ContaBancaria {
-double \_saldo = 0.0; // Privado
+Quando usar?
 
-// Getter: Permite ler o saldo
-double get saldo => \_saldo;
+Quando a classe filha precisa de um comportamento específico, diferente do comportamento padrão da classe pai.
 
-// Setter com Validação: Impede depósitos negativos
-set saldo(double valor) {
+2. Chamando o método da classe pai
+
+Utiliza-se super.
+
+class Animal {
+void emitirSom() {
+print('Som genérico');
+}
+}
+
+class Cachorro extends Animal {
+@override
+void emitirSom() {
+super.emitirSom();
+print('Au au');
+}
+} 3. Getters
+
+Permitem acessar atributos privados de forma controlada.
+
+class Pessoa {
+String \_nome;
+
+Pessoa(this.\_nome);
+
+String get nome => \_nome;
+}
+
+Uso:
+
+print(pessoa.nome); 4. Setters
+
+Permitem alterar valores com validações.
+
+class Pessoa {
+int \_idade = 0;
+
+set idade(int valor) {
 if (valor >= 0) {
-\_saldo = valor;
-} else {
-print("Valor de depósito inválido!");
+\_idade = valor;
 }
 }
-} 
-3. Interfaces e Contratos de Comportamento 
-Ao contrário de outras linguagens (como Java), Dart não possui a palavra-chave interface. Em Dart, toda classe é implicitamente uma interface. Quando queremos usar uma classe como contrato, usamos a palavra-chave implements.Diferença entre Herança (extends) e Implementação (implements)CaracterísticaHerança (extends)Implementação (implements)Relação"É um" (Herda a estrutura e o código)."Funciona como" (Assina um contrato).
-Reaproveitamento Copia o comportamento do pai automaticamente. Não reaproveita nada; você obrigatoriamente deve reescrever todos os métodos.MultiplicidadeDart permite herdar de apenas uma classe pai.Uma classe pode implementar várias interfaces.4. Métodos Estáticos e Enumeradores (Enums)Métodos Estáticos (Métodos de Classe)São métodos que pertencem à classe em si, e não às instâncias (objetos) dela.
-Como acessar? Você os chama direto pelo nome da classe: NomeDaClasse.metodo().
-Quando usar? Para funções utilitárias que não dependem do estado interno de nenhum objeto. Exemplo: Matematica.calcularRaiz(16).Enumeradores (enum)Os enums servem para representar um conjunto fixo de valores constantes e nomeados. Eles tornam o código muito mais seguro contra erros de digitação.Por que usar enums em vez de String/int constantes? Se você usa Strings como "admin" e "usuario", um erro de digitação ("admin") quebra o sistema. O enum é validado pelo próprio compilador.Dart
-enum TipoUsuario { admin, gerente, cliente }
+}
 
-void verificarAcesso(TipoUsuario tipo) {
-if (tipo == TipoUsuario.admin) {
-print("Acesso total");
+Uso:
+
+pessoa.idade = 20; 5. Classes abstratas
+
+São classes que servem como modelo e não podem ser instanciadas.
+
+abstract class Animal {
+void emitirSom();
+}
+
+Isso é inválido:
+
+Animal a = Animal();
+
+Mas isso é válido:
+
+class Cachorro extends Animal {
+@override
+void emitirSom() {
+print('Au au');
 }
 }
+Quando usar?
+
+Quando você quer obrigar outras classes a implementar determinados comportamentos.
+
+6. Herança
+
+Permite reutilizar código de outra classe.
+
+class Veiculo {
+void ligar() {
+print('Ligando');
+}
+}
+
+class Carro extends Veiculo {}
+
+Uso:
+
+Carro carro = Carro();
+carro.ligar(); 7. Herança x Composição
+Herança
+
+"É um"
+
+class Cachorro extends Animal {}
+
+Um cachorro é um animal.
+
+Composição
+
+"Tem um"
+
+class Motor {}
+
+class Carro {
+Motor motor = Motor();
+}
+
+Um carro tem um motor.
+
+Em projetos reais, composição costuma ser preferida por ser mais flexível.
+
+8. Interfaces
+
+Em Dart, qualquer classe pode servir como interface.
+
+abstract class Voar {
+void voar();
+}
+
+Implementação:
+
+class Passaro implements Voar {
+@override
+void voar() {
+print('Voando');
+}
+} 9. Herança x Interface
+Herança
+class Cachorro extends Animal
+Reaproveita código.
+Herdar comportamento.
+Interface
+class Passaro implements Voar
+Define um contrato.
+Obriga implementar métodos. 10. Métodos estáticos
+
+Pertencem à classe, não ao objeto.
+
+class Calculadora {
+static int dobro(int numero) {
+return numero \* 2;
+}
+}
+
+Uso:
+
+Calculadora.dobro(10);
+
+Sem criar objeto:
+
+// Não precisa
+Calculadora calc = Calculadora();
+Quando usar?
+
+Quando o método:
+
+Não depende de atributos da instância.
+É uma utilidade.
+Faz cálculos ou conversões. 11. Métodos de instância
+
+Dependem do objeto criado.
+
+class Pessoa {
+String nome;
+
+Pessoa(this.nome);
+
+void apresentar() {
+print('Meu nome é $nome');
+}
+}
+
+Uso:
+
+Pessoa p = Pessoa('João');
+p.apresentar(); 12. Enumeradores (Enums)
+
+Representam um conjunto fixo de valores.
+
+enum StatusPedido {
+pendente,
+processando,
+entregue
+}
+
+Uso:
+
+StatusPedido status = StatusPedido.entregue; 13. Enum x Constantes
+
+Ao invés de:
+
+const String PENDENTE = 'pendente';
+const String ENTREGUE = 'entregue';
+
+Prefira:
+
+enum StatusPedido {
+pendente,
+entregue
+}
+
+Vantagens:
+
+Evita erros de digitação.
+Mais legível.
+Mais seguro.
+Melhor suporte da IDE.

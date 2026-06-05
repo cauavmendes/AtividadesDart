@@ -1,7 +1,6 @@
-Future<void> main() async{
+Future<void> main() async {
   await buscarDados();
 }
-
 
 Future<void> buscarDados() async {
   print('Iniciando a busca...');
