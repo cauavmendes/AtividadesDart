@@ -64,9 +64,10 @@ class ControleDePessoas {
     _pessoasPorMes[mes]!.add(pessoa);
   }
 
-List<Mes> get mesesComPessoas {
-  return _pessoasPorMes.keys.toList();
-}
+  List<Mes> get mesesComPessoas {
+    return _pessoasPorMes.keys.toList();
+  }
+
   List<Pessoa> pessoasPorMes(Mes mes) {
     return _pessoasPorMes[mes] ?? [];
   }
